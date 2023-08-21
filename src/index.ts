@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
-const hello = (m: string) => {
-  console.log(`Hello ${m}`);
-};
+import { Command } from 'commander';
 
-hello("poo");
-hello("Jem");
-console.log("Hello World");
+const program = new Command();
+program
+  .name('string-util')
+  .description('CLI to some JS string utils')
+  .version('0.8.0');
+
+program.action(() => {
+  console.log('Hello world!');
+}).description('Prints "Hello world!"');
+
+program.parse(process.argv);
